@@ -59,6 +59,10 @@ Create a `.env` file:
 PORT=3000
 GEMINI_API_KEY=YOUR_API_KEY
 ```
+## Live API
+
+https://magicpin-ai-challenge-fw0r.onrender.com
+
 
 ## Author
 
