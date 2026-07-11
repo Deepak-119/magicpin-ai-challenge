@@ -1,0 +1,26 @@
+{
+  "name": "magicpin-ai-challenge",
+  "version": "1.0.0",
+  "description": "AI message engine for Magicpin Vera Challenge",
+  "keywords": [],
+  "license": "ISC",
+  "author": "Deepak Kumar",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.11.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
