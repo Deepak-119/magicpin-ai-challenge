@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const contextStore = require("./services/contextStore");
 const contextRoute = require("./routes/context");
 const tickRoute = require("./routes/tick");
 const replyRoute = require("./routes/reply");
