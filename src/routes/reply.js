@@ -22,6 +22,31 @@ router.post("/", async (req, res) => {
       });
     }
     const userMessage = message.trim().toLowerCase();
+
+    // Off-topic safety
+const offTopicKeywords = [
+  "ipl",
+  "cricket",
+  "football",
+  "weather",
+  "movie",
+  "netflix",
+  "politics",
+  "election",
+  "bitcoin",
+  "stock market",
+  "news"
+];
+
+if (offTopicKeywords.some(keyword => userMessage.includes(keyword))) {
+  return res.status(200).json({
+    reply: {
+      body: "I'm here to help with your business conversations on Magicpin. I can't assist with unrelated topics, but I'd be happy to help with your customers or business.",
+      end_conversation: true
+    },
+  });
+}
+
     // STOP / Unsubscribe handling
     if (
       userMessage === "stop" ||
@@ -84,28 +109,6 @@ if (
   return res.status(200).json({
     reply: {
       body: "I can help with that. Could you tell me whether you're using a film-based or digital X-ray system, and what issue you're facing—image quality, processing, or equipment replacement?",
-      end_conversation: false,
-    },
-  });
-}
-// Off-topic safety
-const offTopicKeywords = [
-  "ipl",
-  "cricket",
-  "football",
-  "weather",
-  "movie",
-  "netflix",
-  "politics",
-  "election",
-  "bitcoin",
-  "stock market"
-];
-
-if (offTopicKeywords.some(keyword => userMessage.includes(keyword))) {
-  return res.status(200).json({
-    reply: {
-      body: "I'm here to help with your business conversations on Magicpin. I can't assist with unrelated topics, but I'd be happy to help with your customers or business.",
       end_conversation: false,
     },
   });
